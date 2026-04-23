@@ -21,6 +21,7 @@ export class AppointmentListComponent {
         date: this.newAppointmentDate,
       };
       this.appointments.push(newAppointment);
+      localStorage.setItem('appointments', JSON.stringify(this.appointments));
       this.newAppointmentTitle = '';
       this.newAppointmentDate = new Date();
     }
@@ -28,5 +29,6 @@ export class AppointmentListComponent {
 
   deleteAppointment(index: number): void {
     this.appointments.splice(index, 1);
+    localStorage.setItem('appointments', JSON.stringify(this.appointments));
   }
 }
